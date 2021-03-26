@@ -1,24 +1,23 @@
 package instruments;
 
 import behaviours.IPlay;
+import behaviours.ISell;
 
-public abstract class Instrument implements IPlay {
+public abstract class Instrument implements IPlay, ISell {
 
     private String type;
     private String brand;
     private String model;
     private String colour;
-    private String material;
     private Double buyCost;
     private Double sellPrice;
     private String sound;
 
-    public Instrument(String type, String brand, String model, String colour, String material, Double buyCost, Double sellPrice, String sound) {
+    public Instrument(String type, String brand, String model, String colour, Double buyCost, Double sellPrice, String sound) {
         this.type = type;
         this.brand = brand;
         this.model = model;
         this.colour = colour;
-        this.material = material;
         this.buyCost = buyCost;
         this.sellPrice = sellPrice;
         this.sound = sound;
@@ -36,17 +35,12 @@ public abstract class Instrument implements IPlay {
         return model;
     }
 
-    public String getSound() {
-        return sound;
-    }
+
 
     public String getColour() {
         return colour;
     }
 
-    public String getMaterial() {
-        return material;
-    }
 
     public Double getBuyCost() {
         return buyCost;
@@ -59,5 +53,9 @@ public abstract class Instrument implements IPlay {
     public String play(){
         return sound;
 
+    }
+
+    public double calculateMarkup(){
+        return sellPrice - buyCost;
     }
 }

@@ -11,7 +11,7 @@ public class GuitarTest {
 
     @Before
     public void before(){
-        guitar = new Guitar("String", "Fender", "Telecaster", "Fiesta Red", "Alder", 450.00, 600.00, "krang", "electric", 6);
+        guitar = new Guitar("String", "Fender", "Telecaster", "Fiesta Red", 450.00, 600.00, "krang", "electric", 6);
 
     }
 
@@ -35,10 +35,6 @@ public class GuitarTest {
         assertEquals("Fiesta Red", guitar.getColour());
     }
 
-    @Test
-    public void hasMaterial(){
-        assertEquals("Alder", guitar.getMaterial());
-    }
 
     @Test
     public void hasBuyCost(){
@@ -60,7 +56,13 @@ public class GuitarTest {
         assertEquals("electric", guitar.getGuitarType());
     }
 
-    @Test public void has6Strings(){
+    @Test
+    public void has6Strings(){
         assertEquals(6, guitar.getNoOfStrings());
+    }
+
+    @Test
+    public void canCalculateMarkUp(){
+        assertEquals(150.00, guitar.calculateMarkup(), 0.0);
     }
 }
